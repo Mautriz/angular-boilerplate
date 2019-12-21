@@ -13,6 +13,12 @@ export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
+export const TranslationLoader = {
+  provide: TranslateLoader,
+  useFactory: HttpLoaderFactory,
+  deps: [HttpClient]
+};
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -21,11 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SharedModule,
     NgrxConfigModule,
     TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+      loader: TranslationLoader
     })
   ],
   providers: [],

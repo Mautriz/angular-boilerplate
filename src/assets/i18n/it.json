@@ -1,9 +1,10 @@
 {
   "homepage": {
-    "title": "Mautrix's Boilerplate"
+    "title": "Boilerplate di Mauro",
+    "subtitle": "Sottotilo matto"
   },
   "not-found": {
-    "title": "404 Not Found",
-    "subtitle": "Looks like this link doesn't exist"
+    "title": "404 Non Trovato",
+    "subtitle": "Sembra che questo link non esista"
   }
 }
