@@ -1,15 +1,14 @@
-import { createAction, props } from '@ngrx/store';
+import { createAction, props } from "@ngrx/store";
+import { User } from "../auth.models";
 
-export const loadAuths = createAction(
-  '[Auth] Load Auths'
+export const login = createAction("[Auth] Login");
+
+export const loginSuccess = createAction(
+  "[Auth] Login success",
+  props<{ user: User }>()
 );
 
-export const loadAuthsSuccess = createAction(
-  '[Auth] Load Auths Success',
-  props<{ data: any }>()
-);
-
-export const loadAuthsFailure = createAction(
-  '[Auth] Load Auths Failure',
-  props<{ error: any }>()
+export const loginFailure = createAction(
+  "[Auth] Login failure",
+  props<{ error: string }>()
 );

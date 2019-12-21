@@ -1,1 +1,6 @@
 <p>homepage works!</p>
+
+<div *ngIf="user$ | async as user">
+  <h4>{{ user.username }}</h4>
+  <p>{{ user.id }}</p>
+</div>

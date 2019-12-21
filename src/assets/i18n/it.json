@@ -1,0 +1,9 @@
+{
+  "homepage": {
+    "title": "Mautrix's Boilerplate"
+  },
+  "not-found": {
+    "title": "404 Not Found",
+    "subtitle": "Looks like this link doesn't exist"
+  }
+}

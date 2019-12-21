@@ -4,13 +4,14 @@ import { NotFoundComponent } from "./shared/components/not-found/not-found.compo
 
 const routes: Routes = [
   {
-    path: "",
-    loadChildren: () => import("./pages/pages.module").then(m => m.PagesModule)
-  },
-  {
     path: "page-not-found",
     component: NotFoundComponent
   },
+  {
+    path: "",
+    loadChildren: () => import("./pages/pages.module").then(m => m.PagesModule)
+  },
+
   {
     path: "**",
     redirectTo: "page-not-found"

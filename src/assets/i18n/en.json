@@ -1,0 +1,9 @@
+{
+  "homepage": {
+    "title": "Boilerplate di Mauro"
+  },
+  "not-found": {
+    "title": "404 Non Trovato",
+    "subtitle": "Sembra che questo link non esista"
+  }
+}

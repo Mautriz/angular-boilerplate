@@ -1,30 +1,25 @@
-import { Injectable } from '@angular/core';
-import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { catchError, map, concatMap } from 'rxjs/operators';
-import { EMPTY, of } from 'rxjs';
+import { Injectable } from "@angular/core";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { catchError, map, concatMap } from "rxjs/operators";
+import { of } from "rxjs";
 
-import * as AuthActions from './auth.actions';
-
-
+import * as AuthActions from "./auth.actions";
 
 @Injectable()
 export class AuthEffects {
-
-  loadAuths$ = createEffect(() => {
-    return this.actions$.pipe( 
-
-      ofType(AuthActions.loadAuths),
-      concatMap(() =>
-        /** An EMPTY observable only emits completion. Replace with your own observable API request */
-        EMPTY.pipe(
-          map(data => AuthActions.loadAuthsSuccess({ data })),
-          catchError(error => of(AuthActions.loadAuthsFailure({ error }))))
+  loginEffect$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(AuthActions.login),
+      map(() =>
+        AuthActions.loginSuccess({
+          user: {
+            id: "33",
+            username: "Marco"
+          }
+        })
       )
     );
   });
 
-
-
   constructor(private actions$: Actions) {}
-
 }
