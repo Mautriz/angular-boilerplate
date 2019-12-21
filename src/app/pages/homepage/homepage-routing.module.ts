@@ -6,6 +6,10 @@ const routes: Routes = [
   {
     path: "",
     component: HomepageComponent
+  },
+  {
+    path: ":fileId",
+    component: HomepageComponent
   }
 ];
 

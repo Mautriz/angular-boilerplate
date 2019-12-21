@@ -10,27 +10,11 @@ import { environment } from "../environments/environment";
 import { EffectsModule } from "@ngrx/effects";
 import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { SharedModule } from "./shared/shared.module";
+import { NgrxConfigModule } from "./ngrx/ngrx.module";
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    SharedModule,
-    StoreModule.forRoot(reducers, {
-      metaReducers,
-      runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
-      }
-    }),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production
-    }),
-    EffectsModule.forRoot([]),
-    StoreRouterConnectingModule.forRoot()
-  ],
+  imports: [BrowserModule, AppRoutingModule, SharedModule, NgrxConfigModule],
   providers: [],
   bootstrap: [AppComponent]
 })
