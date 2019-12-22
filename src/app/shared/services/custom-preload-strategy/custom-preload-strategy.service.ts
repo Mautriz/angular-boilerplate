@@ -22,16 +22,18 @@ export class CustomPreloadStrategy implements PreloadingStrategy {
     return this.preloadOnDemand$.pipe(
       mergeMap(preloadOptions => {
         const shouldPreload = this.preloadCheck(route, preloadOptions);
+        console.log(shouldPreload);
         return shouldPreload ? load() : EMPTY;
       })
     );
   }
 
   private preloadCheck(route: Route, preloadOptions: OnDemandPreloadOptions) {
+    console.log(preloadOptions, route.path);
     return (
       route.data &&
       route.data["preload"] &&
-      [route.path, "*"].includes(preloadOptions.routePath) &&
+      route.path === preloadOptions.routePath &&
       preloadOptions.preload
     );
   }

@@ -8,9 +8,18 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
+        path: "statistics",
+        loadChildren: () =>
+          import("./statistics/statistics.module").then(
+            m => m.StatisticsModule
+          ),
+        data: { preload: true }
+      },
+      {
         path: "",
         loadChildren: () =>
-          import("./homepage/homepage.module").then(m => m.HomepageModule)
+          import("./homepage/homepage.module").then(m => m.HomepageModule),
+        data: { preload: true }
       }
     ]
   }

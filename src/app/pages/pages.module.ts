@@ -7,6 +7,7 @@ import { LayoutComponent } from "./main-layout.component";
 import { HomepageModule } from "./homepage/homepage.module";
 import { TranslateModule } from "@ngx-translate/core";
 import { TranslationLoader } from "../app.module";
+import { StatisticsModule } from "./statistics/statistics.module";
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { TranslationLoader } from "../app.module";
     PagesRoutingModule,
     SharedModule,
     HomepageModule,
+    StatisticsModule,
     TranslateModule.forChild({ loader: TranslationLoader })
   ],
   declarations: [LayoutComponent]

@@ -7,6 +7,7 @@ import { SubSink } from "subsink";
 import { selectUser } from "../../auth/reducer/auth.selectors";
 import { login } from "../../auth/reducer/auth.actions";
 import { User } from "../../auth/auth.models";
+import { OnDemandPreloadService } from "src/app/shared/services/custom-preload-strategy/on-demand-preload.service";
 
 @Component({
   selector: "app-homepage",
@@ -18,7 +19,10 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   user$: Observable<User>;
 
-  constructor(private store: Store<AppState>) {}
+  constructor(
+    private store: Store<AppState>,
+    private preload: OnDemandPreloadService
+  ) {}
 
   ngOnInit() {
     this.subs.sink = this.store
@@ -30,5 +34,9 @@ export class HomepageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subs.unsubscribe();
+  }
+
+  preloadBundle(routePath: string) {
+    this.preload.startPreload(routePath);
   }
 }

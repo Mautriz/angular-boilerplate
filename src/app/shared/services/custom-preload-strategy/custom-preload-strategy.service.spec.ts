@@ -1,12 +1,11 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
+import { CustomPreloadStrategy } from "./custom-preload-strategy.service";
 
-import { CustomPreloadStrategyService } from './custom-preload-strategy.service';
-
-describe('CustomPreloadStrategyService', () => {
+describe("CustomPreloadStrategyService", () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
-  it('should be created', () => {
-    const service: CustomPreloadStrategyService = TestBed.get(CustomPreloadStrategyService);
+  it("should be created", () => {
+    const service: CustomPreloadStrategy = TestBed.get(CustomPreloadStrategy);
     expect(service).toBeTruthy();
   });
 });
