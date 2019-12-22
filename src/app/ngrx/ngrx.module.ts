@@ -11,8 +11,10 @@ import { environment } from "src/environments/environment";
     StoreModule.forRoot(reducers, {
       metaReducers,
       runtimeChecks: {
-        strictStateImmutability: true,
-        strictActionImmutability: true
+        strictStateImmutability: false,
+        strictActionImmutability: false,
+        strictStateSerializability: false,
+        strictActionSerializability: false
       }
     }),
     StoreDevtoolsModule.instrument({
