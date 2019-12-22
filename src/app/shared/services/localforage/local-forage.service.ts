@@ -8,13 +8,16 @@ export class LocalForageService {
   constructor() {}
 
   // prende l'item solo se ancora valido
-  async getItem(key: string | object, skipExpirationCheck?: boolean) {
+  async getItem<T>(
+    key: string | object,
+    skipExpirationCheck?: boolean
+  ): Promise<T> {
     const newKey = this.serializeKey(key);
 
     const {
       expire,
       data
-    }: { expire: number; data: unknown } = await localForage.getItem(newKey);
+    }: { expire: number; data: T } = await localForage.getItem(newKey);
 
     if (data) {
       // se l'expire date non è ancora arrivato

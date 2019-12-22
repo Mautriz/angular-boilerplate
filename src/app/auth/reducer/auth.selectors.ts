@@ -15,3 +15,5 @@ export const selectIsLoggedIn = createSelector(
 );
 
 export const selectError = createSelector(selectAuthState, auth => auth.error);
+
+export const selectToken = createSelector(selectAuthState, auth => auth.token);

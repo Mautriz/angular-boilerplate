@@ -8,6 +8,7 @@ import { NgrxConfigModule } from "./ngrx/ngrx.module";
 import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
 import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpClient } from "@angular/common/http";
+import { AuthModule } from "./auth/auth.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -25,6 +26,7 @@ export const TranslationLoader = {
     BrowserModule,
     AppRoutingModule,
     SharedModule,
+    AuthModule,
     NgrxConfigModule,
     TranslateModule.forRoot({
       loader: TranslationLoader

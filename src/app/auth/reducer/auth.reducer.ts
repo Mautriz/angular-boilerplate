@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from "@ngrx/store";
 import * as AuthActions from "./auth.actions";
-import { User } from "../auth.models";
+import { User, Token } from "../auth.models";
 
 export const authFeatureKey = "auth";
 
@@ -8,12 +8,17 @@ export interface AuthState {
   isLoggedIn: boolean;
   user: User;
   error: string;
+  token: Token;
 }
 
 export const initialState: AuthState = {
   isLoggedIn: false,
   user: null,
-  error: null
+  error: null,
+  token: {
+    access_token: null,
+    refresh_token: null
+  }
 };
 
 const authReducer = createReducer(
@@ -29,6 +34,10 @@ const authReducer = createReducer(
     ...state,
     isLoggedIn: false,
     user: null
+  })),
+  on(AuthActions.tokenRefresh, (state, action) => ({
+    ...state,
+    token: action.token
   }))
 );
 
