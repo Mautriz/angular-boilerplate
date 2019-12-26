@@ -1,5 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
+import { NgModule, APP_INITIALIZER } from "@angular/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -12,6 +12,12 @@ import { AuthModule } from "./auth/auth.module";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
+}
+
+function AppInizialer() {
+  return new Promise(resolve => {
+    resolve();
+  });
 }
 
 export const TranslationLoader = {
@@ -32,7 +38,13 @@ export const TranslationLoader = {
       loader: TranslationLoader
     })
   ],
-  providers: [],
+  providers: [
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useValue: AppInizialer,
+    //   multi: true
+    // }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
